@@ -5,18 +5,19 @@
  */
 
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+
+import {Provider} from 'react-redux';
+import configureStore from './home/store/configureStore';
+
 import Home from './home/Home';
 
 export default class LearnDayByDay extends Component {
   render() {
+    const store = configureStore();
     return (
-        <Home />
+        <Provider store={store}>
+            <Home/>
+        </Provider>
     );
   }
 }
