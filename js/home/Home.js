@@ -13,15 +13,29 @@ import {
   Dimensions
 } from 'react-native';
 
-export default class LearnDayByDay extends Component {
+import * as homeActions from './reducers/homeActions';
+import {connect} from 'react-redux';
+
+const actions = [
+    homeActions,
+];
+
+function mapStateToProps(state) {
+    return {
+        ...state
+    };
+}
+
+class Home extends Component {
   render() {
+      let {home} = this.props;
     return (
         <View style={styles.container}>
             <View style={styles.entry}>
                 <Text style={styles.entryText} onPress={() => {
                     console.log('clicked me');
                 }}>
-                    Home page hah
+                    {home.homeBtnText}
                 </Text>
             </View>
         </View>
@@ -51,4 +65,4 @@ const styles = StyleSheet.create({
     }
 });
 
-AppRegistry.registerComponent('LearnDayByDay', () => LearnDayByDay);
+export default connect(mapStateToProps)(Home);

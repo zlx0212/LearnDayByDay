@@ -1,0 +1,2 @@
+export const HOME_PAGE_LIST = 'HOME_PAGE_LIST';
+export const HOME_PAGE_BTN_TEXT = 'HOME_PAGE_BTN_TEXT';

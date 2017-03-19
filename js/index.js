@@ -5,15 +5,16 @@
  */
 
 import React, { Component } from 'react';
-
+import {AppRegistry} from 'react-native';
 import {Provider} from 'react-redux';
 import configureStore from './home/store/configureStore';
+import homeInitialState from './home/reducers/homeInitialState';
 
 import Home from './home/Home';
 
 export default class LearnDayByDay extends Component {
   render() {
-    const store = configureStore();
+    const store = configureStore({home:homeInitialState});
     return (
         <Provider store={store}>
             <Home/>
@@ -21,3 +22,5 @@ export default class LearnDayByDay extends Component {
     );
   }
 }
+
+AppRegistry.registerComponent('LearnDayByDay', () => LearnDayByDay);
