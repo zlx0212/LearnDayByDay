@@ -35,7 +35,7 @@ class Home extends Component {
                 <Text style={styles.entryText} onPress={() => {
                     console.log('clicked me');
                 }}>
-                    {home.homeBtnText}
+                    {home.get('homeBtnText')}
                 </Text>
             </View>
         </View>

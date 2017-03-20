@@ -1,5 +1,7 @@
 import * as types from '../constant/actionTypes';
-import initialState from './homeInitialState';
+import InitialState from './homeInitialState';
+
+const initialState = new InitialState;
 
 export default function homeReducer(state=initialState, action) {
     switch (action.type) {

@@ -14,7 +14,7 @@ import Home from './home/Home';
 
 export default class LearnDayByDay extends Component {
   render() {
-    const store = configureStore({home:homeInitialState});
+    const store = configureStore({home:(new homeInitialState())});
     return (
         <Provider store={store}>
             <Home/>
