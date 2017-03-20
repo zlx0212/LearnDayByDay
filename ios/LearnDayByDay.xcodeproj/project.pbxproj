@@ -36,6 +36,12 @@
 		2DCD954D1E0B4F2C00145EB5 /* LearnDayByDayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* LearnDayByDayTests.m */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		C2093C8D1E7FCB88008BF39D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2093C8C1E7FCB88008BF39D /* HomeViewController.m */; };
+		C2093CAF1E7FD3CD008BF39D /* HomeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2093CAE1E7FD3CD008BF39D /* HomeManager.m */; };
+		C2093CB31E7FDCF6008BF39D /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2093CB21E7FDCF6008BF39D /* SecondViewController.m */; };
+		C22A8A331E7FEFC300073E46 /* SecondView.m in Sources */ = {isa = PBXBuildFile; fileRef = C22A8A321E7FEFC300073E46 /* SecondView.m */; };
+		C260AE951E7FDF0200AC4EA1 /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C260AE941E7FDF0200AC4EA1 /* HomeView.m */; };
+		C260AEB11E7FE4C900AC4EA1 /* Bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = C260AEB01E7FE4C900AC4EA1 /* Bridge.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -255,6 +261,18 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		C2093C8B1E7FCB88008BF39D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		C2093C8C1E7FCB88008BF39D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		C2093CAD1E7FD3CD008BF39D /* HomeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeManager.h; sourceTree = "<group>"; };
+		C2093CAE1E7FD3CD008BF39D /* HomeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeManager.m; sourceTree = "<group>"; };
+		C2093CB11E7FDCF6008BF39D /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		C2093CB21E7FDCF6008BF39D /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		C22A8A311E7FEFC300073E46 /* SecondView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondView.h; sourceTree = "<group>"; };
+		C22A8A321E7FEFC300073E46 /* SecondView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondView.m; sourceTree = "<group>"; };
+		C260AE931E7FDF0200AC4EA1 /* HomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeView.h; sourceTree = "<group>"; };
+		C260AE941E7FDF0200AC4EA1 /* HomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeView.m; sourceTree = "<group>"; };
+		C260AEAF1E7FE4C900AC4EA1 /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
+		C260AEB01E7FE4C900AC4EA1 /* Bridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bridge.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +407,8 @@
 		13B07FAE1A68108700A75B9A /* LearnDayByDay */ = {
 			isa = PBXGroup;
 			children = (
+				C2093CB01E7FDCD0008BF39D /* Detail */,
+				C2093CAC1E7FD3A1008BF39D /* Home */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -396,6 +416,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				C260AEAF1E7FE4C900AC4EA1 /* Bridge.h */,
+				C260AEB01E7FE4C900AC4EA1 /* Bridge.m */,
 			);
 			name = LearnDayByDay;
 			sourceTree = "<group>";
@@ -481,6 +503,30 @@
 				2D02E4901E0B4A5D006451C7 /* LearnDayByDay-tvOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C2093CAC1E7FD3A1008BF39D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C2093C8B1E7FCB88008BF39D /* HomeViewController.h */,
+				C2093C8C1E7FCB88008BF39D /* HomeViewController.m */,
+				C2093CAD1E7FD3CD008BF39D /* HomeManager.h */,
+				C2093CAE1E7FD3CD008BF39D /* HomeManager.m */,
+				C260AE931E7FDF0200AC4EA1 /* HomeView.h */,
+				C260AE941E7FDF0200AC4EA1 /* HomeView.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		C2093CB01E7FDCD0008BF39D /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				C2093CB11E7FDCF6008BF39D /* SecondViewController.h */,
+				C2093CB21E7FDCF6008BF39D /* SecondViewController.m */,
+				C22A8A311E7FEFC300073E46 /* SecondView.h */,
+				C22A8A321E7FEFC300073E46 /* SecondView.m */,
+			);
+			name = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -909,8 +955,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2093CB31E7FDCF6008BF39D /* SecondViewController.m in Sources */,
+				C2093CAF1E7FD3CD008BF39D /* HomeManager.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				C2093C8D1E7FCB88008BF39D /* HomeViewController.m in Sources */,
+				C260AEB11E7FE4C900AC4EA1 /* Bridge.m in Sources */,
+				C22A8A331E7FEFC300073E46 /* SecondView.m in Sources */,
+				C260AE951E7FDF0200AC4EA1 /* HomeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
