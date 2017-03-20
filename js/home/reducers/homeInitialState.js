@@ -17,7 +17,9 @@ let homeList = [
 
 let InitialState = Record({
     homeList: Immutable.fromJS(homeList),
-    homeBtnText: '开始',
+    tip: '你准备好了吗?',
+    homeBtnText: '是的',
+    ready: false,
 });
 
 export default InitialState;

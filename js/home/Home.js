@@ -5,64 +5,22 @@
  */
 
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  Dimensions
-} from 'react-native';
+import {AppRegistry} from 'react-native';
+import {Provider} from 'react-redux';
+import configureStore from './store/configureStore';
+import homeInitialState from './reducers/homeInitialState';
 
-import * as homeActions from './reducers/homeActions';
-import {connect} from 'react-redux';
+import HomeContainer from './container/HomeContainer';
 
-const actions = [
-    homeActions,
-];
-
-function mapStateToProps(state) {
-    return {
-        ...state
-    };
-}
-
-class Home extends Component {
+export default class Home extends Component {
   render() {
-      let {home} = this.props;
+    const store = configureStore({home:(new homeInitialState())});
     return (
-        <View style={styles.container}>
-            <View style={styles.entry}>
-                <Text style={styles.entryText} onPress={() => {
-                    console.log('clicked me');
-                }}>
-                    {home.get('homeBtnText')}
-                </Text>
-            </View>
-        </View>
+        <Provider store={store}>
+            <HomeContainer/>
+        </Provider>
     );
   }
 }
-let {width, height} = Dimensions.get('window');
 
-const styles = StyleSheet.create({
-    container: {
-        flex:1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    entry: {
-        width: 200,
-        height: 66,
-        borderRadius: 5,
-        backgroundColor: '#444444',
-    },
-    entryText: {
-        textAlign: 'center',
-        color: 'white',
-        fontSize: 18,
-        lineHeight: 66,
-        backgroundColor: 'transparent'
-    }
-});
-
-export default connect(mapStateToProps)(Home);
+AppRegistry.registerComponent('Home', () => Home);
