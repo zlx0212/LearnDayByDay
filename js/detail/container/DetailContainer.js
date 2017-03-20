@@ -13,7 +13,7 @@ import {
   Dimensions
 } from 'react-native';
 
-import * as detailActions from '../reducers/detailActions';
+import * as detailActions from '../reducers/detail/detailActions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Detail from '../components/Detail';

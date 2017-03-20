@@ -1,4 +1,4 @@
-import * as types from '../constants/actionTypes';
+import * as types from '../../constants/actionTypes';
 import InitialState from './detailInitialState';
 
 const initialState = new InitialState;

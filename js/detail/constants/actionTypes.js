@@ -1,2 +1,11 @@
-export const HOME_PAGE_INFO = 'HOME_PAGE_INFO';
-export const HOME_PAGE_BTN_TEXT = 'HOME_PAGE_BTN_TEXT';
+import keyMirror from 'key-mirror';
+
+export default keyMirror({
+    SET_PLATFORM: null,
+    SET_HOST: null,
+    SET_SERVICE_HOST: null,
+    SET_AB_VERSION: null,
+    SET_CHANNEL: null,
+    SET_TYPE: null,
+
+});

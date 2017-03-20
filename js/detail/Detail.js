@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 import {AppRegistry} from 'react-native';
 import {Provider} from 'react-redux';
 import configureStore from './store/configureStore';
-import detailInitialState from './reducers/detailInitialState';
+import detailInitialState from './reducers/detail/detailInitialState';
 
 import DetailContainer from './container/DetailContainer';
 
