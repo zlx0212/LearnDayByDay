@@ -7,7 +7,6 @@
 //
 
 #import "HomeManager.h"
-#import "AppDelegate.h"
 #import "SecondViewController.h"
 #import "Bridge.h"
 #import "HomeViewController.h"
@@ -28,6 +27,19 @@ RCT_EXPORT_METHOD(jumpToSecondPage)
 //    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 //    [app.navigationController pushViewController:secondVC animated:YES];
     
+  });
+}
+
+RCT_EXPORT_METHOD(testCallBackParms:(NSString *)parms callback:(RCTResponseSenderBlock)callback)
+{
+  dispatch_async(dispatch_get_main_queue(), ^{
+    NSLog(@"---haha");
+    NSLog(@"%@",parms);
+    /*
+     *do something
+     */
+    callback(@[[NSNull null],@"from OC to JS"]);
+
   });
 }
 

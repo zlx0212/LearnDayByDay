@@ -18,6 +18,11 @@ export function readyAction() {
                 tip:'Great!!!',
                 homeBtnText:'Go,Go,GO!'
             }));
+            console.log('from JS to OC');
+            NativeModules.HomeManager.testCallBackParms('from JS to OC',(error,events)=> {
+                console.log('------>');
+                console.log(events);
+            });
         }else {
             NativeModules.HomeManager.jumpToSecondPage();
         }
