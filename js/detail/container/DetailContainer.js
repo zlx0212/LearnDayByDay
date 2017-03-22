@@ -45,19 +45,29 @@ function mapDispatchToProps(dispatch) {
 class DetailContainer extends Component {
     constructor(props) {
         super(props);
-        this._readyAction = this._readyAction.bind(this);
+        this._onRefresh = this._onRefresh.bind(this);
+        this._fetachMoreList = this._fetachMoreList.bind(this);
     }
 
-    _readyAction() {
-        this.props.actions.readyAction();
+    componentWillMount() {
+        this.props.actions.refreshList();
+    }
+
+    _fetachMoreList() {
+        this.props.actions.fetchCellList();
+    }
+
+    _onRefresh() {
+        this.props.actions.refreshList();
     }
 
     render() {
         let {detail} = this.props;
         return (
             <Detail
-                dataSource={detail}
-                readyAction={this._readyAction}
+                detailPageInfo={detail}
+                onRefresh={this._onRefresh}
+                fetachMoreList={this._fetachMoreList}
             />
         );
     }
