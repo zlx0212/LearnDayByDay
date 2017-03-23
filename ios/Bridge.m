@@ -54,7 +54,7 @@
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 {
   NSURL *jsCodeLocation;
-  NSString *urlString = @"http://172.16.6.121:8081/index.ios.bundle?platform=ios&dev=true";
+  NSString *urlString = @"http://localhost:8081/index.ios.bundle?platform=ios&dev=true";
   jsCodeLocation = [NSURL URLWithString:urlString];
   return jsCodeLocation;
 }

@@ -9,6 +9,8 @@ const {
     FETCH_CELL_LIST_SUCCESS,
     FETCH_CELL_LIST_FAILURE,
 
+    UPDATE_PULL_TO_REFRESH_STATE,
+
 } = require('../../constants/actionTypes').default;
 import TimerMixin from 'react-timer-mixin';
 
@@ -32,6 +34,13 @@ export function fetchCellListFailure(error) {
     }
 }
 
+export function updatePullToRefreshState(state) {
+    return {
+        type: UPDATE_PULL_TO_REFRESH_STATE,
+        payload: state,
+    }
+}
+
 export function fetchCellList(refreshFlag=false) {
 	return (dispatch, getState) => {
         let {app, detail} = getState();
@@ -41,9 +50,13 @@ export function fetchCellList(refreshFlag=false) {
             return;
         }
         dispatch(fetchCellListRequest());
+        if (refreshFlag) {
+            dispatch(updatePullToRefreshState(true));
+        }
         TimerMixin.setTimeout(() => {
                 let dValueList = generateCellList();
                 if (refreshFlag) {
+                    dispatch(updatePullToRefreshState(false));
                     dispatch(fetchCellListSeccess({newCellList:dValueList,curpage:1}));
                 } else {
                     curpage++;

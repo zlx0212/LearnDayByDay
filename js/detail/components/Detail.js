@@ -16,7 +16,6 @@ import {
     ListView,
     TouchableOpacity,
     RefreshControl,
-    InteractionManager,
 } from 'react-native';
 import Immutable, {Map,Record,List} from 'immutable';
 import LoadingIndicator from '../../common/components/LoadingIndicator';
@@ -79,52 +78,45 @@ export default class Detail extends Component {
     }
 
     _onRefresh() {
-        this.setState({isRefreshing: true});
         this.props.onRefresh && this.props.onRefresh();
-        setTimeout(() => {
-            this.setState({
-                isRefreshing: false,
-            });
-        }, 3000);
     }
 
     render() {
         let {cellListComponent} = this.props;
-        let {isFetching, cellList} = cellListComponent;
+        let {isFetching, cellList, ptr} = cellListComponent;
         let dataSource = cellList?cellList.toArray():[];
         return (
             <View style={styles.container}>
-            {dataSource.length?
-                <ListView
-                    refreshControl={
-                        <RefreshControl
-                            refreshing={this.state.isRefreshing}
-                            onRefresh={this._onRefresh}
-                            tintColor="#000000"
-                            title="Loading..."
-                            titleColor="#000000"
-                            colors={['#f0f0f0', '#444444', '#000000']}
-                            progressBackgroundColor="#444444"
-                        />
-                    }
-                    contentContainerStyle={styles.contentContainer}
-                    enableEmptySections={true}
-                    dataSource={this.dataSource.cloneWithRows(dataSource)}
-                    renderRow={this._renderRow}
-                    renderSeparator={this._renderSeparator}
-                    renderFooter={this._renderFooter}
-                    renderHeader={this._renderHeader}
-                    onEndReached={() => {
-                        if (cellList && cellList.size && !this.state.isRefreshing) {
-                            this.props.fetachMoreList && this.props.fetachMoreList();
+                {dataSource.length?
+                    <ListView
+                        refreshControl={
+                            <RefreshControl
+                                refreshing={ptr}
+                                onRefresh={this._onRefresh}
+                                tintColor="#000000"
+                                title="Loading..."
+                                titleColor="#000000"
+                                colors={['#f0f0f0', '#444444', '#000000']}
+                                progressBackgroundColor="#444444"
+                            />
                         }
-                    }}
-                />
-                :null
-            }
-
+                        contentContainerStyle={styles.contentContainer}
+                        enableEmptySections={true}
+                        dataSource={this.dataSource.cloneWithRows(dataSource)}
+                        renderRow={this._renderRow}
+                        renderSeparator={this._renderSeparator}
+                        renderFooter={this._renderFooter}
+                        renderHeader={this._renderHeader}
+                        onEndReached={() => {
+                            if (cellList && cellList.size && !this.state.isRefreshing) {
+                                this.props.fetachMoreList && this.props.fetachMoreList();
+                            }
+                        }}
+                    />
+                    :null
+                }
                 <LoadingIndicator
-                    isVisible={dataSource.length?false:isFetching}
+                    isVisible={isFetching && !ptr ? true:false}
                 />
             </View>
         );

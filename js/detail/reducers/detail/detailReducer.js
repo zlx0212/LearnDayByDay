@@ -7,6 +7,8 @@ const {
     FETCH_CELL_LIST_SUCCESS,
     FETCH_CELL_LIST_FAILURE,
 
+	UPDATE_PULL_TO_REFRESH_STATE,
+
 } = require('../../constants/actionTypes').default;
 
 const initialState = new InitialState;
@@ -22,6 +24,8 @@ export default function detailReducer(state=initialState, action) {
         case FETCH_CELL_LIST_FAILURE:
             return state.setIn(['cellListComponent','isFetching'], false)
             .set('error', action.payload);
+		case UPDATE_PULL_TO_REFRESH_STATE:
+			return state.setIn(['cellListComponent', 'ptr'], action.payload);
         default:
             return state;
     }
