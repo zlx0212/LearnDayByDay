@@ -17,7 +17,8 @@ export default function detailReducer(state=initialState, action) {
             return state.setIn(['cellListComponent','isFetching'], true);
         case FETCH_CELL_LIST_SUCCESS:
             return state.setIn(['cellListComponent','isFetching'], false)
-            .setIn(['cellListComponent','cellList'], Immutable.fromJS(action.payload));
+            .setIn(['cellListComponent','cellList'], Immutable.fromJS(action.payload.newCellList))
+			.setIn(['cellListComponent', 'curpage'],action.payload.curpage);
         case FETCH_CELL_LIST_FAILURE:
             return state.setIn(['cellListComponent','isFetching'], false)
             .set('error', action.payload);

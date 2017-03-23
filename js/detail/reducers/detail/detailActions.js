@@ -36,21 +36,20 @@ export function fetchCellList(refreshFlag=false) {
 	return (dispatch, getState) => {
         let {app, detail} = getState();
         let {cellListComponent} = detail;
-        let {isFetching,cellList} = cellListComponent;
-        if (isFetching) {
+        let {isFetching,cellList,curpage,totalPage} = cellListComponent;
+        if (isFetching || (!refreshFlag && curpage == totalPage)) {
             return;
         }
         dispatch(fetchCellListRequest());
         TimerMixin.setTimeout(() => {
                 let dValueList = generateCellList();
-                console.log('--------1111');
-                console.log(dValueList);
                 if (refreshFlag) {
-                    dispatch(fetchCellListSeccess(dValueList));
+                    dispatch(fetchCellListSeccess({newCellList:dValueList,curpage:1}));
                 } else {
+                    curpage++;
                     let oldCellList = cellList.toJS();
                     let newCellList = [...oldCellList,...dValueList];
-                    dispatch(fetchCellListSeccess(newCellList));
+                    dispatch(fetchCellListSeccess({newCellList,curpage}));
                 }
             },
             2000
@@ -65,97 +64,12 @@ export function refreshList() {
 }
 
 function generateCellList() {
-    return [
-        {
+    let cellList = [];
+    for (var i = 0; i < 30; i++) {
+        cellList.push({
             icon: '../images/01.png',
             text: 'so...so...sweet',
-        }, {
-            icon: '../images/02.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/03.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/04.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/05.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/06.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/07.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/08.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/09.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/10.png',
-            text: 'so...so...sweet',
-        },{
-            icon: '../images/11.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/12.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/13.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/14.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/15.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/16.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/17.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/18.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/19.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/20.png',
-            text: 'so...so...sweet',
-        },{
-            icon: '../images/21.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/22.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/23.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/24.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/15.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/16.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/17.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/18.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/19.png',
-            text: 'so...so...sweet',
-        }, {
-            icon: '../images/20.png',
-            text: 'so...so...sweet',
-        }
-    ];
+        });
+    }
+    return cellList;
 }

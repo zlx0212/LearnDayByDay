@@ -59,15 +59,21 @@ export default class Detail extends Component {
     _renderHeader() {
         return (
             <View style={styles.footerContainer}>
-                <Text style={styles.footerText}>I am header</Text>
+                <Text style={styles.footerText}>Pull to refresh!</Text>
             </View>
         );
     }
 
     _renderFooter() {
+        let {cellListComponent} = this.props;
+        let {curpage, totalPage} = cellListComponent;
+        let footerText = 'load more';
+        if (curpage == totalPage) {
+            footerText = 'no more ...';
+        }
         return (
             <View style={styles.footerContainer}>
-                <Text style={styles.footerText}>I am footer</Text>
+                <Text style={styles.footerText}>{footerText}</Text>
             </View>
         );
     }
@@ -83,12 +89,12 @@ export default class Detail extends Component {
     }
 
     render() {
-        let {detailPageInfo} = this.props;
-        let {cellListComponent,ptr} = detailPageInfo;
+        let {cellListComponent} = this.props;
         let {isFetching, cellList} = cellListComponent;
         let dataSource = cellList?cellList.toArray():[];
         return (
             <View style={styles.container}>
+            {dataSource.length?
                 <ListView
                     refreshControl={
                         <RefreshControl
@@ -114,6 +120,8 @@ export default class Detail extends Component {
                         }
                     }}
                 />
+                :null
+            }
 
                 <LoadingIndicator
                     isVisible={isFetching}

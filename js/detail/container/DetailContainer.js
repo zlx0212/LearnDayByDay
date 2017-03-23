@@ -63,9 +63,10 @@ class DetailContainer extends Component {
 
     render() {
         let {detail} = this.props;
+        let {cellListComponent} = detail;
         return (
             <Detail
-                detailPageInfo={detail}
+                cellListComponent={cellListComponent}
                 onRefresh={this._onRefresh}
                 fetachMoreList={this._fetachMoreList}
             />
