@@ -124,7 +124,7 @@ export default class Detail extends Component {
             }
 
                 <LoadingIndicator
-                    isVisible={isFetching}
+                    isVisible={dataSource.length?false:isFetching}
                 />
             </View>
         );
